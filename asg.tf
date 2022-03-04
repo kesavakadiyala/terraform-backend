@@ -21,7 +21,7 @@ resource "aws_launch_template" "launch_template" {
 }
 
 resource "aws_lb_target_group" "lb-target-group" {
-  name     = "frontend-lb-target-group"
+  name     = "${var.component}-lb-target-group"
   port     = 80
   protocol = "HTTP"
   vpc_id   = data.terraform_remote_state.vpc.outputs.VPC_ID
