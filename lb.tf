@@ -1,5 +1,5 @@
 resource "aws_alb_listener_rule" "lb-rule" {
-  listener_arn = data.terraform_remote_state.vpc.outputs.BACKEND_ALB_ARN
+  listener_arn = data.terraform_remote_state.frontend.outputs.BACKEND_LISTENER_ARN
   priority     = var.lb_priority
   action {
     type             = "forward"
