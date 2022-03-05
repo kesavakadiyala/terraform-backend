@@ -24,6 +24,9 @@ resource "aws_lb_target_group" "lb-target-group" {
   name     = "${var.component}-lb-target-group"
   port     = 8000
   protocol = "HTTP"
+  health_check {
+    path   = "/health"
+  }
   vpc_id   = data.terraform_remote_state.vpc.outputs.VPC_ID
 }
 
