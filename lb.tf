@@ -8,7 +8,7 @@ resource "aws_alb_listener_rule" "lb-rule" {
 
   condition {
     host_header {
-      values = ["${var.component}-${var.ENV}.devopsb51.tk"]
+      values = ["${var.component}-${var.ENV}.devopsb51.tk:8000"]
     }
   }
 }
