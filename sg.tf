@@ -13,8 +13,8 @@ resource "aws_security_group" "allow-template-instance" {
 
   ingress {
     description = "TLS from VPC"
-    from_port   = 80
-    to_port     = 80
+    from_port   = 8000
+    to_port     = 8000
     protocol    = "tcp"
     cidr_blocks = [data.terraform_remote_state.vpc.outputs.VPC_CIDR]
   }
