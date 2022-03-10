@@ -1,6 +1,6 @@
 resource "aws_security_group" "allow-template-instance" {
-  name        = "allow-${var.component}template-instance"
-  description = "allow-${var.component}template-instance"
+  name        = "allow-${var.component}-${var.ENV}-template-instance"
+  description = "allow-${var.component}-${var.ENV}template-instance"
   vpc_id      = data.terraform_remote_state.vpc.outputs.VPC_ID
 
   ingress {
@@ -27,6 +27,6 @@ resource "aws_security_group" "allow-template-instance" {
   }
 
   tags = {
-    Name = "allow-${var.component}template-instance"
+    Name = "allow-${var.component}-${var.ENV}template-instance"
   }
 }
