@@ -1,4 +1,4 @@
-resource "aws_alb_listener_rule" "lb-rule" {
+resource "aws_alb_listener_rule" "lb-rule-dev" {
   count = var.ENV == "dev" ? 1 : 0
   listener_arn = data.terraform_remote_state.frontend.outputs.BACKEND_LISTENER_ARN_DEV
   priority     = var.lb_priority
@@ -14,7 +14,7 @@ resource "aws_alb_listener_rule" "lb-rule" {
   }
 }
 
-resource "aws_alb_listener_rule" "lb-rule" {
+resource "aws_alb_listener_rule" "lb-rule-prod" {
   count = var.ENV == "prod" ? 1 : 0
   listener_arn = data.terraform_remote_state.frontend.outputs.BACKEND_LISTENER_ARN_PROD
   priority     = var.lb_priority
